@@ -43,7 +43,7 @@ package Examples "Test examples"
     inner parameter ExternData.INIFile dataSource(fileName=Modelica.Utilities.Files.loadResource("modelica://ExternData/Resources/Examples/test.ini")) "INI file" annotation(Placement(transformation(extent={{-80,60},{-60,80}})));
     Modelica.Blocks.Math.Gain gain1(k=dataSource.getReal("gain.k", setName)) annotation(Placement(transformation(extent={{-15,60},{5,80}})));
     Modelica.Blocks.Math.Gain gain2(k=Modelica.Utilities.Strings.scanReal(dataSource.getString("gain.k", setName))) annotation(Placement(transformation(extent={{-15,30},{5,50}})));
-    Modelica.Blocks.Sources.ContinuousClock clock annotation(Placement(transformation(extent={{-50,60},{-30,80}})));
+    Modelica.Blocks.Sources.Clock clock annotation(Placement(transformation(extent={{-50,60},{-30,80}})));
     equation
       connect(clock.y,gain1.u) annotation(Line(points={{-29,70},{-17,70}}, color={0,0,127}));
       connect(clock.y,gain2.u) annotation(Line(points={{-29,70},{-22,70},{-22,40},{-17,40}}, color={0,0,127}));
@@ -57,7 +57,7 @@ package Examples "Test examples"
     inner parameter ExternData.JSONFile dataSource(fileName=Modelica.Utilities.Files.loadResource("modelica://ExternData/Resources/Examples/test.json")) "JSON file" annotation(Placement(transformation(extent={{-80,60},{-60,80}})));
     Modelica.Blocks.Math.Gain gain1(k=dataSource.getReal(setName + ".gain.k")) annotation(Placement(transformation(extent={{-15,60},{5,80}})));
     Modelica.Blocks.Math.Gain gain2(k=Modelica.Utilities.Strings.scanReal(dataSource.getString(setName + ".gain.k"))) annotation(Placement(transformation(extent={{-15,30},{5,50}})));
-    Modelica.Blocks.Sources.ContinuousClock clock annotation(Placement(transformation(extent={{-50,60},{-30,80}})));
+    Modelica.Blocks.Sources.Clock clock annotation(Placement(transformation(extent={{-50,60},{-30,80}})));
     final parameter Integer m = dataSource.getArrayRows2D("table1") "Number of rows in 2D array";
     Modelica.Blocks.Sources.TimeTable timeTable(table=dataSource.getRealArray2D("table1", 3, 2)) annotation(Placement(transformation(extent={{-50,30},{-30,50}})));
     equation
@@ -80,7 +80,7 @@ package Examples "Test examples"
     extends Modelica.Icons.Example;
     inner parameter ExternData.SSVFile dataSource(fileName=Modelica.Utilities.Files.loadResource("modelica://ExternData/Resources/Examples/test.ssv")) "SSV file" annotation(Placement(transformation(extent={{-80,60},{-60,80}})));
     Modelica.Blocks.Math.Gain gain1(k=dataSource.getReal("gain.k")) annotation(Placement(transformation(extent={{-15,60},{5,80}})));
-    Modelica.Blocks.Sources.ContinuousClock clock annotation(Placement(transformation(extent={{-50,60},{-30,80}})));
+    Modelica.Blocks.Sources.Clock clock annotation(Placement(transformation(extent={{-50,60},{-30,80}})));
     equation
       connect(clock.y,gain1.u) annotation(Line(points={{-29,70},{-17,70}}, color={0,0,127}));
     annotation(experiment(StopTime=1),
@@ -93,7 +93,7 @@ package Examples "Test examples"
     inner parameter ExternData.XLSFile dataSource(fileName=Modelica.Utilities.Files.loadResource("modelica://ExternData/Resources/Examples/test.xls")) "XLS file" annotation(Placement(transformation(extent={{-80,60},{-60,80}})));
     Modelica.Blocks.Math.Gain gain1(k=dataSource.getReal("B2", sheetName)) annotation(Placement(transformation(extent={{-15,60},{5,80}})));
     Modelica.Blocks.Math.Gain gain2(k=Modelica.Utilities.Strings.scanReal(dataSource.getString("B2", sheetName))) annotation(Placement(transformation(extent={{-15,30},{5,50}})));
-    Modelica.Blocks.Sources.ContinuousClock clock annotation(Placement(transformation(extent={{-50,60},{-30,80}})));
+    Modelica.Blocks.Sources.Clock clock annotation(Placement(transformation(extent={{-50,60},{-30,80}})));
     final parameter Integer m = dataSource.getArrayRows2D("table1") "Number of rows in 2D array";
     Modelica.Blocks.Sources.TimeTable timeTable(table=dataSource.getRealArray2D("A1", "table1", 3, 2)) annotation(Placement(transformation(extent={{-50,30},{-30,50}})));
     final parameter Real sumB = computeColSum(dataSource, "B") "Sum of column B";
@@ -131,7 +131,7 @@ package Examples "Test examples"
     inner parameter ExternData.XLSXFile dataSource(fileName=Modelica.Utilities.Files.loadResource("modelica://ExternData/Resources/Examples/test.xlsx")) "XLSX file" annotation(Placement(transformation(extent={{-80,60},{-60,80}})));
     Modelica.Blocks.Math.Gain gain1(k=dataSource.getReal("B2", sheetName)) annotation(Placement(transformation(extent={{-15,60},{5,80}})));
     Modelica.Blocks.Math.Gain gain2(k=Modelica.Utilities.Strings.scanReal(dataSource.getString("B2", sheetName))) annotation(Placement(transformation(extent={{-15,30},{5,50}})));
-    Modelica.Blocks.Sources.ContinuousClock clock annotation(Placement(transformation(extent={{-50,60},{-30,80}})));
+    Modelica.Blocks.Sources.Clock clock annotation(Placement(transformation(extent={{-50,60},{-30,80}})));
     final parameter Integer m = dataSource.getArrayRows2D("table1") "Number of rows in 2D array";
     Modelica.Blocks.Sources.TimeTable timeTable(table=dataSource.getRealArray2D("A1", "table1", 3, 2)) annotation(Placement(transformation(extent={{-50,30},{-30,50}})));
     final parameter Real sumB = computeColSum(dataSource, "B") "Sum of column B";
@@ -169,7 +169,7 @@ package Examples "Test examples"
     inner parameter ExternData.XMLFile dataSource(fileName=Modelica.Utilities.Files.loadResource("modelica://ExternData/Resources/Examples/test.xml")) "XML file" annotation(Placement(transformation(extent={{-80,60},{-60,80}})));
     Modelica.Blocks.Math.Gain gain1(k=dataSource.getReal(setName + ".gain.k")) annotation(Placement(transformation(extent={{-15,60},{5,80}})));
     Modelica.Blocks.Math.Gain gain2(k=Modelica.Utilities.Strings.scanReal(dataSource.getString(setName + ".gain.k"))) annotation(Placement(transformation(extent={{-15,30},{5,50}})));
-    Modelica.Blocks.Sources.ContinuousClock clock annotation(Placement(transformation(extent={{-50,60},{-30,80}})));
+    Modelica.Blocks.Sources.Clock clock annotation(Placement(transformation(extent={{-50,60},{-30,80}})));
     final parameter Integer m = dataSource.getArrayRows2D("table1") "Number of rows in 2D array";
     Modelica.Blocks.Sources.TimeTable timeTable(table=dataSource.getRealArray2D("table1", 3, 2)) annotation(Placement(transformation(extent={{-50,30},{-30,50}})));
     equation
@@ -188,7 +188,7 @@ package Examples "Test examples"
       extends ExternData.Interfaces.DataSourceModel;
       Modelica.Blocks.Math.Gain gain1(k=dataSource.getReal(setName + ".gain.k")) annotation(Placement(transformation(extent={{-15,60},{5,80}})));
       Modelica.Blocks.Math.Gain gain2(k=Modelica.Utilities.Strings.scanReal(dataSource.getString(setName + ".gain.k"))) annotation(Placement(transformation(extent={{-15,30},{5,50}})));
-      Modelica.Blocks.Sources.ContinuousClock clock annotation(Placement(transformation(extent={{-50,60},{-30,80}})));
+      Modelica.Blocks.Sources.Clock clock annotation(Placement(transformation(extent={{-50,60},{-30,80}})));
       final parameter Integer m = dataSource.getArrayRows2D("table1") "Number of rows in 2D array";
       Modelica.Blocks.Sources.TimeTable timeTable(table=dataSource.getRealArray2D("table1", 3, 2)) annotation(Placement(transformation(extent={{-50,30},{-30,50}})));
       equation
@@ -229,7 +229,7 @@ package Examples "Test examples"
     parameter String fileName=Modelica.Utilities.Files.loadResource("modelica://ExternData/Resources/Examples/test.xml") "XML file";
     Modelica.Blocks.Math.Gain gain1(k=getReal(fileName, setName + ".gain.k")) annotation(Placement(transformation(extent={{-15,60},{5,80}})));
     Modelica.Blocks.Math.Gain gain2(k=Modelica.Utilities.Strings.scanReal(getString(fileName, setName + ".gain.k"))) annotation(Placement(transformation(extent={{-15,30},{5,50}})));
-    Modelica.Blocks.Sources.ContinuousClock clock annotation(Placement(transformation(extent={{-50,60},{-30,80}})));
+    Modelica.Blocks.Sources.Clock clock annotation(Placement(transformation(extent={{-50,60},{-30,80}})));
     equation
       connect(clock.y,gain1.u) annotation(Line(points={{-29,70},{-17,70}}, color={0,0,127}));
       connect(clock.y,gain2.u) annotation(Line(points={{-29,70},{-22,70},{-22,40},{-17,40}}, color={0,0,127}));
@@ -245,7 +245,7 @@ package Examples "Test examples"
     parameter String fileName=Modelica.Utilities.Files.loadResource("modelica://ExternData/Resources/Examples/test.xml") "XML file";
     Modelica.Blocks.Math.Gain gain1(k=getReal(setName + ".gain.k", xml)) annotation(Placement(transformation(extent={{-15,60},{5,80}})));
     Modelica.Blocks.Math.Gain gain2(k=Modelica.Utilities.Strings.scanReal(getString(setName + ".gain.k", xml))) annotation(Placement(transformation(extent={{-15,30},{5,50}})));
-    Modelica.Blocks.Sources.ContinuousClock clock annotation(Placement(transformation(extent={{-50,60},{-30,80}})));
+    Modelica.Blocks.Sources.Clock clock annotation(Placement(transformation(extent={{-50,60},{-30,80}})));
     protected
 	  final parameter ExternData.Types.ExternXMLFile xml = ExternData.Types.ExternXMLFile(fileName) "External XML file object";
 	equation
